@@ -209,20 +209,20 @@ const AppContext = createContext(null);
 function PageHero({ image, title, subtitle }) {
   const isGradient = typeof image === "string" && image.startsWith("linear-gradient");
   return (
-    <div style={{ position: "relative", width: "100%", height: 240, overflow: "hidden", marginBottom: 16 }}>
+    <div style={{ position: "relative", width: "100%", height: 312, overflow: "hidden", marginBottom: 16 }}>
       {isGradient ? (
         <div style={{ position: "absolute", inset: 0, background: image }} />
       ) : (
         <>
-          <img src={image} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.7)" }} onError={(e) => { e.target.style.display = "none"; e.target.nextSibling.style.display = "block"; }} />
+          <img src={image} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.85)" }} onError={(e) => { e.target.style.display = "none"; e.target.nextSibling.style.display = "block"; }} />
           <div style={{ position: "absolute", inset: 0, background: GRADIENTS.home, display: "none" }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.45) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.03) 50%, rgba(0,0,0,0.32) 100%)" }} />
         </>
       )}
       {isGradient && (
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.45) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.03) 50%, rgba(0,0,0,0.32) 100%)" }} />
       )}
-      <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 20px 20px" }}>
+      <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 20px 24px" }}>
         <h1 style={{ fontFamily: "'Calistoga', serif", fontSize: "3.5rem", color: "#fff", margin: 0, fontWeight: 700, lineHeight: 1, textShadow: "0 2px 8px rgba(0,0,0,0.3)" }}>{title}</h1>
         {subtitle && <p style={{ fontSize: 14, color: "rgba(255,255,255,0.9)", margin: "8px 0 0", lineHeight: 1.5, maxWidth: "85%", textShadow: "0 1px 4px rgba(0,0,0,0.3)" }}>{subtitle}</p>}
       </div>
