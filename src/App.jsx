@@ -45,7 +45,16 @@ const STUDIO_CONFIG = {
   specialtyCapacity: 15,
 };
 
-const STUDIO_IMAGES = {};
+const STUDIO_IMAGES = {
+  home: "https://images.pexels.com/photos/8436589/pexels-photo-8436589.jpeg?auto=compress&cs=tinysrgb&w=800",
+  classes: "https://images.pexels.com/photos/8436622/pexels-photo-8436622.jpeg?auto=compress&cs=tinysrgb&w=800",
+  schedule: "https://images.pexels.com/photos/8437076/pexels-photo-8437076.jpeg?auto=compress&cs=tinysrgb&w=800",
+  practice: "https://images.pexels.com/photos/8436691/pexels-photo-8436691.jpeg?auto=compress&cs=tinysrgb&w=800",
+  community: "https://images.pexels.com/photos/7596956/pexels-photo-7596956.jpeg?auto=compress&cs=tinysrgb&w=800",
+  teachers: "https://images.pexels.com/photos/8436490/pexels-photo-8436490.jpeg?auto=compress&cs=tinysrgb&w=800",
+  events: "https://images.pexels.com/photos/4051518/pexels-photo-4051518.jpeg?auto=compress&cs=tinysrgb&w=800",
+  membership: "https://images.pexels.com/photos/6787162/pexels-photo-6787162.jpeg?auto=compress&cs=tinysrgb&w=800",
+};
 const GRADIENTS = {
   home: `linear-gradient(135deg, hsl(25,52%,26%) 0%, hsl(20,18%,12%) 100%)`,
   classes: `linear-gradient(135deg, hsl(170,30%,24%) 0%, hsl(25,35%,18%) 100%)`,
@@ -348,7 +357,7 @@ function HomePage() {
 
   return (
     <div>
-      <PageHero image={GRADIENTS.home} title={<>{STUDIO_CONFIG.heroLine1}<br/><span style={{ color: T.accent, fontStyle: "italic" }}>{STUDIO_CONFIG.heroLine2}</span></>} subtitle={STUDIO_CONFIG.description} />
+      <PageHero image={STUDIO_IMAGES.home} title={<>{STUDIO_CONFIG.heroLine1}<br/><span style={{ color: T.accent, fontStyle: "italic" }}>{STUDIO_CONFIG.heroLine2}</span></>} subtitle={STUDIO_CONFIG.description} />
 
       <section style={{ padding: "20px 16px 0", position: "relative", zIndex: 10 }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8 }}>
@@ -457,7 +466,7 @@ function ClassesPage() {
   const all = [TODAYS_FOCUS, ...PAST_PRACTICES, UPCOMING_PRACTICE].sort((a, b) => b.date.localeCompare(a.date));
   return (
     <div>
-      <PageHero image={GRADIENTS.classes} title="Classes" subtitle="Hot vinyasa, heated hatha, yin, sculpt, qigong, and more" />
+      <PageHero image={STUDIO_IMAGES.classes} title="Classes" subtitle="Hot vinyasa, heated hatha, yin, sculpt, qigong, and more" />
       <div style={{ padding: "20px 16px 0", display: "flex", flexDirection: "column", gap: 12 }}>
         {all.map(p => <PracticeCard key={p.id} practice={p} expanded={exp === p.id} onToggle={() => setExp(exp === p.id ? null : p.id)} />)}
       </div>
@@ -473,7 +482,7 @@ function SchedulePage() {
 
   return (
     <div>
-      <PageHero image={GRADIENTS.schedule} title="Schedule" subtitle="Reserve your spot — classes fill up fast" />
+      <PageHero image={STUDIO_IMAGES.schedule} title="Schedule" subtitle="Reserve your spot — classes fill up fast" />
       <div style={{ padding: "20px 16px 0" }}>
         <div style={{ display: "flex", gap: 4, marginBottom: 16, overflowX: "auto", paddingBottom: 4 }}>
           {days.map((d, i) => (
@@ -513,7 +522,7 @@ function PracticePage() {
 
   return (
     <div>
-      <PageHero image={GRADIENTS.practice} title="My Practice" subtitle="Track your journey and celebrate growth" />
+      <PageHero image={STUDIO_IMAGES.practice} title="My Practice" subtitle="Track your journey and celebrate growth" />
       <div style={{ padding: "20px 16px 0" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 20 }}>
           {[
@@ -597,7 +606,7 @@ function CommunityPage() {
   const { feedCelebrations, celebrateFeed } = useContext(AppContext);
   return (
     <div>
-      <PageHero image={GRADIENTS.community} title="Community" subtitle="Celebrate each other's practice" />
+      <PageHero image={STUDIO_IMAGES.community} title="Community" subtitle="Celebrate each other's practice" />
       <div style={{ padding: "20px 16px 0" }}>
         {STUDIO_CONFIG.features.guestPasses && (
           <div style={{ background: `linear-gradient(135deg, ${T.bg}, hsl(30,20%,14%))`, borderRadius: 14, padding: "18px", marginBottom: 20, color: "#fff" }}>
@@ -633,7 +642,7 @@ function TeachersPage() {
   const [expandedTeacher, setExpandedTeacher] = useState(null);
   return (
     <div>
-      <PageHero image={GRADIENTS.teachers} title="Teachers" subtitle="Infrared-heated and non-heated yoga in Bellingham" />
+      <PageHero image={STUDIO_IMAGES.teachers} title="Teachers" subtitle="Infrared-heated and non-heated yoga in Bellingham" />
       <div style={{ padding: "20px 16px 0", display: "flex", flexDirection: "column", gap: 12 }}>
         {TEACHERS.map(teacher => {
           const expanded = expandedTeacher === teacher.id;
@@ -670,7 +679,7 @@ function TeachersPage() {
 function MembershipPage() {
   return (
     <div>
-      <PageHero image={GRADIENTS.membership} title="Membership" subtitle="Find your path to practice" />
+      <PageHero image={STUDIO_IMAGES.membership} title="Membership" subtitle="Find your path to practice" />
       <div style={{ padding: "20px 16px 0", display: "flex", flexDirection: "column", gap: 12 }}>
         {MEMBERSHIP_TIERS.map(tier => (
           <div key={tier.id} style={{ background: T.bgCard, border: `1px solid ${tier.popular ? T.accent : T.border}`, borderRadius: 14, padding: "20px 18px", position: "relative", overflow: "hidden" }}>
@@ -694,7 +703,7 @@ function MembershipPage() {
 function EventsPage() {
   return (
     <div>
-      <PageHero image={GRADIENTS.events} title="Events" subtitle="Workshops, retreats, trainings, and special offerings" />
+      <PageHero image={STUDIO_IMAGES.events} title="Events" subtitle="Workshops, retreats, trainings, and special offerings" />
       <div style={{ padding: "20px 16px 0" }}>
         {EVENTS.map(ev => (
           <div key={ev.id} style={{ background: T.bgCard, border: `1px solid ${T.border}`, borderRadius: 14, overflow: "hidden", marginBottom: 16 }}>
