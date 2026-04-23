@@ -1,12 +1,12 @@
 import { useState } from "react";
 import {
   Calendar, TrendingUp, Users, Heart, Sparkles, Layers,
-  Bell, Headphones, ChevronRight, Monitor, Smartphone, Star, Shield, Zap
+  Bell, Headphones, ChevronRight, Monitor, Smartphone, Star, Shield, Zap, MapPin
 } from "lucide-react";
 import App from "./App.jsx";
 import { DEMO_CONFIG } from "./demo.config.js";
 
-const iconMap = { Sparkles, Layers, Heart, Shield, Star, Zap, Calendar, TrendingUp, Users, Bell, Headphones, Monitor, Smartphone };
+const iconMap = { Sparkles, Layers, Heart, Shield, Star, Zap, Calendar, TrendingUp, Users, Bell, Headphones, Monitor, Smartphone, MapPin };
 const getIcon = (name) => iconMap[name] || Star;
 
 export default function DemoWrapper() {
@@ -32,11 +32,11 @@ export default function DemoWrapper() {
         {/* Studio Identity */}
         <div style={{ padding: "20px 24px 16px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div style={{ width: 44, height: 44, borderRadius: 12, background: accent, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Calistoga', serif", fontSize: 22, fontWeight: 700, color: "#fff" }}>
+            <div style={{ width: 44, height: 44, borderRadius: 12, background: accent, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Fraunces', serif", fontSize: 22, fontWeight: 700, color: "#fff" }}>
               {c.studio.logo}
             </div>
             <div>
-              <div style={{ fontFamily: "'Calistoga', serif", fontSize: 18, fontWeight: 600, letterSpacing: "0.02em", color: "#111827" }}>{c.studio.name}</div>
+              <div style={{ fontFamily: "'Fraunces', serif", fontSize: 18, fontWeight: 600, letterSpacing: "0.02em", color: "#111827" }}>{c.studio.name}</div>
               <div style={{ fontSize: 11, color: "#6b7280", marginTop: 1 }}>{c.studio.tagline}</div>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function DemoWrapper() {
                   <div style={{ width: 36, height: 36, borderRadius: 10, background: `${accent}12`, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     {isAdminCard ? <Shield size={18} color={accent} /> : <IconComp size={18} color={accent} />}
                   </div>
-                  <h3 style={{ fontFamily: "'Calistoga', serif", fontSize: 18, fontWeight: 600, color: "#111827", margin: 0 }}>{card.title}</h3>
+                  <h3 style={{ fontFamily: "'Fraunces', serif", fontSize: 18, fontWeight: 600, color: "#111827", margin: 0 }}>{card.title}</h3>
                 </div>
                 <p style={{ fontSize: 12, color: "#6b7280", lineHeight: 1.6, margin: 0 }}>{card.description}</p>
                 {isAdminCard && (
@@ -119,7 +119,7 @@ export default function DemoWrapper() {
 
           {/* CTA Card */}
           <div style={{ background: `linear-gradient(135deg, ${accent}12, ${accentDark}08)`, border: `1px solid ${accent}30`, borderRadius: 14, padding: "22px 18px", textAlign: "center" }}>
-            <h3 style={{ fontFamily: "'Calistoga', serif", fontSize: 22, fontWeight: 600, color: "#111827", margin: "0 0 6px" }}>{c.cta.heading}</h3>
+            <h3 style={{ fontFamily: "'Fraunces', serif", fontSize: 22, fontWeight: 600, color: "#111827", margin: "0 0 6px" }}>{c.cta.heading}</h3>
             <p style={{ fontSize: 13, color: "#6b7280", margin: "0 0 16px", lineHeight: 1.4 }}>{c.cta.subheading}</p>
             <a href={c.cta.buttonUrl} target="_blank" rel="noopener noreferrer" style={{
               display: "inline-flex", alignItems: "center", gap: 6, padding: "12px 28px",
@@ -139,7 +139,6 @@ export default function DemoWrapper() {
           main { margin-left: 0 !important; margin-right: 0 !important; }
         }
         aside::-webkit-scrollbar { display: none; }
-        main ::-webkit-scrollbar { display: none; }
       `}</style>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, createContext, useContext, useRef } from "react";
 import {
   Home, Calendar, TrendingUp, Users, CreditCard, CalendarDays,
-  Menu, X, Bell, Settings, Shield, ChevronRight, ChevronDown, Clock,
+  Menu, AlignJustify, X, Bell, Settings, Shield, ChevronRight, ChevronDown, Clock,
   ArrowUpRight, ArrowDownRight, Award, DollarSign, LayoutDashboard,
   UserCheck, Megaphone, LogOut, Plus, Edit3, Send, Check, Search, Info,
   CircleCheck, UserPlus, Heart, Flame, Star, Sun, Moon, Wind, Sparkles,
@@ -216,15 +216,15 @@ function PageHero({ image, title, subtitle }) {
         <>
           <img src={image} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.85)" }} onError={(e) => { e.target.style.display = "none"; e.target.nextSibling.style.display = "block"; }} />
           <div style={{ position: "absolute", inset: 0, background: GRADIENTS.home, display: "none" }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.03) 50%, rgba(0,0,0,0.32) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.03) 50%, rgba(0,0,0,0.25) 100%)" }} />
         </>
       )}
       {isGradient && (
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.03) 50%, rgba(0,0,0,0.32) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.03) 50%, rgba(0,0,0,0.25) 100%)" }} />
       )}
       <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 20px 24px" }}>
         <h1 style={{ fontFamily: "'Calistoga', serif", fontSize: "3.5rem", color: "#fff", margin: 0, fontWeight: 700, lineHeight: 1, textShadow: "0 2px 8px rgba(0,0,0,0.3)" }}>{title}</h1>
-        {subtitle && <p style={{ fontSize: 14, color: "rgba(255,255,255,0.9)", margin: "8px 0 0", lineHeight: 1.5, maxWidth: "85%", textShadow: "0 1px 4px rgba(0,0,0,0.3)" }}>{subtitle}</p>}
+        {subtitle && <p style={{ fontSize: 14, color: "rgba(255,255,255,0.9)", margin: "8px 0 0", lineHeight: 1.5, textShadow: "0 1px 4px rgba(0,0,0,0.3)" }}>{subtitle}</p>}
       </div>
     </div>
   );
@@ -1079,13 +1079,13 @@ export default function App({ startInAdmin, onExitAdmin, onEnterAdmin }) {
 
   const mainTabs = [
     { id: "home", label: "Home", icon: Home },
-    { id: "classes", label: "Classes", icon: Wind },
     { id: "schedule", label: "Schedule", icon: Calendar },
     { id: "practice", label: "Practice", icon: TrendingUp },
+    { id: "community", label: "Community", icon: Heart },
     { id: "more", label: "More", icon: Menu },
   ];
   const moreItems = [
-    { id: "community", label: "Community", icon: Heart },
+    { id: "classes", label: "Classes", icon: AlignJustify },
     { id: "teachers", label: "Teachers", icon: Users },
     { id: "membership", label: "Membership", icon: CreditCard },
     { id: "events", label: "Events", icon: CalendarDays },
